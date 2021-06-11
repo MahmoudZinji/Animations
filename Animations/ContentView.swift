@@ -15,14 +15,15 @@ struct CornerRotateModifier : ViewModifier {
     func body(content: Content) -> some View {
         content.rotationEffect(.degrees(amount), anchor: anchor)
             .clipped()
+            
     }
 }
 
 extension AnyTransition {
     static var pivot : AnyTransition {
         .modifier(
-            active: CornerRotateModifier(amount: -90, anchor: .bottomLeading),
-            identity: CornerRotateModifier(amount: 0, anchor: .bottomLeading)
+            active: CornerRotateModifier(amount: -90, anchor: .topLeading),
+            identity: CornerRotateModifier(amount: 0, anchor: .topLeading)
         )
     }
 }
